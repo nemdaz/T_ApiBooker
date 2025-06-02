@@ -1,0 +1,101 @@
+[
+    {
+        "firstname": null,
+        "lastname": null,
+        "totalprice": 400,
+        "depositpaid": true,
+        "bookingdates.checkin": "2022-11-01",
+        "bookingdates.checkout": "2022-12-01",
+        "additionalneeds": "Vista al paue"
+    },
+    {
+        "firstname": "Nombre 01",
+        "lastname": "Apellido 01",
+        "totalprice": 400,
+        "depositpaid": true,
+        "bookingdates.checkin": null,
+        "bookingdates.checkout": null,
+        "additionalneeds": "Vista al parque y desayuno"
+    },
+    {
+        "firstname": "null",
+        "lastname": "null",
+        "totalprice": 400,
+        "depositpaid": true,
+        "bookingdates.checkin": "2022-11-01",
+        "bookingdates.checkout": "2022-12-01",
+        "additionalneeds": "Vista al parque"
+    },
+    {
+        "firstname": "Maria",
+        "lastname": "Garcia",
+        "totalprice": null,
+        "depositpaid": null,
+        "bookingdates.checkin": "2022-07-01",
+        "bookingdates.checkout": "2022-08-01",
+        "additionalneeds": "Desayuno a las 8am"
+    },
+    {
+        "firstname": "Luisa",
+        "lastname": "Garcia",
+        "totalprice": 420,
+        "depositpaid": true,
+        "bookingdates.checkin": "@· %%//..,.-$$$\\\\",
+        "bookingdates.checkout": "@· %%//..,.-$$$\\\\",
+        "additionalneeds": "Desayuno a las 8am"
+    },
+    {
+        "firstname": "Maria Daniela",
+        "lastname": "Garcia Torres",
+        "totalprice": 1145,
+        "depositpaid": "TRUE",
+        "bookingdates.checkin": "2022-07-01",
+        "bookingdates.checkout": "2022-08-01",
+        "additionalneeds": "Desayuno a las 8am"
+    },
+    {
+        "firstname": "Maria Daniela",
+        "lastname": "Garcia Torres",
+        "totalprice": 1145,
+        "depositpaid": "tRue",
+        "bookingdates.checkin": "2022-07-01",
+        "bookingdates.checkout": "2022-08-01",
+        "additionalneeds": "Desayuno a las 8am"
+    },
+    {
+        "firstname": "Daniela",
+        "lastname": "Rivas Torres",
+        "totalprice": 567,
+        "depositpaid": true,
+        "bookingdates.checkin": "2022/07/01",
+        "bookingdates.checkout": "2022/08/01",
+        "additionalneeds": "Desayuno a las 8am"
+    },
+    {
+        "firstname": "Fernanda",
+        "lastname": "Rivas Torres",
+        "totalprice": 2323,
+        "depositpaid": true,
+        "bookingdates.checkin": "2022.07.01",
+        "bookingdates.checkout": "2022.08.01",
+        "additionalneeds": "Desayuno a las 8am"
+    },
+    {
+        "firstname": "Fernanda",
+        "lastname": "Rivas Torres",
+        "totalprice": 2323,
+        "depositpaid": true,
+        "bookingdates.checkin": "2022.31.12",
+        "bookingdates.checkout": "2022.20.02",
+        "additionalneeds": "Desayuno a las 8am"
+    },
+    {
+        "firstname": "Fernanda",
+        "lastname": "Rivas Torres",
+        "totalprice": 2323,
+        "depositpaid": true,
+        "bookingdates.checkin": "2022.00.88",
+        "bookingdates.checkout": "2022.01.99",
+        "additionalneeds": "Desayuno a las 8am"
+    }
+]

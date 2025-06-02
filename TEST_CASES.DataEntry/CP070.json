@@ -1,0 +1,50 @@
+[
+    {
+        "firstname": "Desconicido",
+        "lastname": "Sin Resultado",
+        "bookingdates.checkin": null,
+        "bookingdates.checkout": null
+    },
+    {
+        "firstname": "Juan",
+        "lastname": null,
+        "bookingdates.checkin": null,
+        "bookingdates.checkout": null
+    },
+    {
+        "firstname": null,
+        "lastname": "Garcia",
+        "bookingdates.checkin": null,
+        "bookingdates.checkout": null
+    },
+    {
+        "firstname": null,
+        "lastname": null,
+        "bookingdates.checkin": "2021-01-01",
+        "bookingdates.checkout": null
+    },
+    {
+        "firstname": null,
+        "lastname": null,
+        "bookingdates.checkin": null,
+        "bookingdates.checkout": "2023-01-01"
+    },
+    {
+        "firstname": "Juan",
+        "lastname": "Davila",
+        "bookingdates.checkin": null,
+        "bookingdates.checkout": null
+    },
+    {
+        "firstname": null,
+        "lastname": null,
+        "bookingdates.checkin": "2022-01-01",
+        "bookingdates.checkout": "2022-12-30"
+    },
+    {
+        "firstname": "Juan",
+        "lastname": "Davila",
+        "bookingdates.checkin": "2022-01-01",
+        "bookingdates.checkout": "2022-12-30"
+    }
+]

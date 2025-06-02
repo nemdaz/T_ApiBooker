@@ -1,0 +1,56 @@
+[
+    {
+        "firstname": "Juan",
+        "lastname": "Davila",
+        "totalprice": 400,
+        "depositpaid": true,
+        "bookingdates.checkin": "2022-11-01",
+        "bookingdates.checkout": "2022-12-01",
+        "additionalneeds": "Vista al parque"
+    },
+    {
+        "firstname": "Maria",
+        "lastname": "Garcia",
+        "totalprice": 420,
+        "depositpaid": true,
+        "bookingdates.checkin": "2022-07-01",
+        "bookingdates.checkout": "2022-08-01",
+        "additionalneeds": "Desayuno a las 8am"
+    },
+    {
+        "firstname": "Maria Roxana Livia Segunda",
+        "lastname": "Garcia de la Torre - Desayuno a las 8am, por favor que la habitación sea en el 5to piso",
+        "totalprice": 500,
+        "depositpaid": true,
+        "bookingdates.checkin": "2021-11-01",
+        "bookingdates.checkout": "2021-12-01",
+        "additionalneeds": "Desayuno a las 8am, por favor que la habitación sea en el 5to piso"
+    },
+    {
+        "firstname": "Maria Roxana Livia Segunda Segunda Segunda Segunda Segunda Segunda Segunda Segunda Segunda Segunda Segunda Segunda Segunda Segunda Segunda Segunda",
+        "lastname": "Garcia de la Torre - Desayuno a las 8am, por favor que la habitación sea en el 5to piso / Garcia de la Torre - Desayuno a las 8am, por favor que la habitación sea en el 5to piso",
+        "totalprice": 500,
+        "depositpaid": true,
+        "bookingdates.checkin": "2021-11-01",
+        "bookingdates.checkout": "2021-12-01",
+        "additionalneeds": "Desayuno a las 8am, por favor que la habitación sea en el 5to piso / Desayuno a las 8am, por favor que la habitación sea en el 5to piso / Desayuno a las 8am, por favor que la habitación sea en el 5to piso"
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "totalprice": 420,
+        "depositpaid": true,
+        "bookingdates.checkin": "2022-07-01",
+        "bookingdates.checkout": "2022-08-01",
+        "additionalneeds": "D"
+    },
+    {
+        "firstname": "Mari@· %%//..,.-$$$\\\\´´´´´",
+        "lastname": "Garcia de @· %%//..,.-$$$\\\\´´´´´",
+        "totalprice": 420,
+        "depositpaid": true,
+        "bookingdates.checkin": "2022-07-01",
+        "bookingdates.checkout": "2022-08-01",
+        "additionalneeds": "Desayuno a las 8am and @· %%//..,.-$$$\\\\´´´´´"
+    }
+]
