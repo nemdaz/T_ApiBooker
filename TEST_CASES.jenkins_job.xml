@@ -1,58 +1,73 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <project>
-  <actions/>
+  <actions />
   <description>Automatización de pruebas para el API Booker : https://restful-booker.herokuapp.com/apidoc/index.html</description>
   <keepDependencies>false</keepDependencies>
+
+  <!-- 1️⃣ Parámetro para elegir la rama -->
   <properties>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.TextParameterDefinition>
           <name>branchTest</name>
-          <description>Especificar el brach de repositorio para las pruebas</description>
+          <description>Especificar el branch del repositorio para las pruebas</description>
           <defaultValue>develop</defaultValue>
           <trim>false</trim>
         </hudson.model.TextParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
   </properties>
+
+  <!-- 2️⃣ SCM Git -->
   <scm class="hudson.plugins.git.GitSCM" plugin="git@5.0.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <name>YpTest_APIBooker</name>
-        <url>https://github.com/nemdaz/YpTest_APIBooker</url>
+        <name>T_ApiBooker</name>
+        <url>https://github.com/nemdaz/T_ApiBooker</url>
+        <!-- Agrega <credentialsId>cred‑github</credentialsId> si necesitas auth -->
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
+      <!-- Usa el remoto por defecto */ en lugar del nombre local -->
       <hudson.plugins.git.BranchSpec>
-        <name>YpTest_APIBooker/${branchTest}</name>
+        <name>T_ApiBooker/${branchTest}</name>
       </hudson.plugins.git.BranchSpec>
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
-    <submoduleCfg class="empty-list"/>
+    <submoduleCfg class="empty-list" />
     <extensions>
+      <!-- Carpeta destino dentro del workspace, sin duplicados -->
       <hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
         <relativeTargetDir>GitSources</relativeTargetDir>
       </hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
     </extensions>
   </scm>
+
   <canRoam>true</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+
+  <!-- 3️⃣ Polling cada 2 min → ajusta si es muy agresivo -->
   <triggers>
     <hudson.triggers.SCMTrigger>
       <spec>H/2 * * * *</spec>
       <ignorePostCommitHooks>false</ignorePostCommitHooks>
     </hudson.triggers.SCMTrigger>
   </triggers>
+
   <concurrentBuild>false</concurrentBuild>
+
+  <!-- 4️⃣ Build step -->
   <builders>
     <hudson.tasks.BatchFile>
-      <command>call cd GitSources &amp;&amp; call TEST_CASES.build_steps.bat</command>
-      <configuredLocalRules/>
+      <!-- Usa el workspace explícito; CALL ya no es necesario -->
+      <command>cd %WORKSPACE%\GitSources &amp;&amp; TEST_CASES.build_steps.bat</command>
+      <configuredLocalRules />
     </hudson.tasks.BatchFile>
   </builders>
-  <publishers/>
-  <buildWrappers/>
+
+  <publishers />
+  <buildWrappers />
 </project>

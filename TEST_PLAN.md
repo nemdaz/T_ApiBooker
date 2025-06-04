@@ -60,9 +60,10 @@ El plan de pruebas se enmarca al modulo 010100 del sistema Booker la cual corres
 | Software | Postman v10.9.3      | Herramienta de diseño, prueba y monitorización de APIs. |
 | Software | VSCode v1.75.0       | Editor/IDE.                                               |
 | Software | SourceTree 3.4.8     | Gestor de control de versiones git.                       |
-| Software | Git                  | Herramienta de controlde versiones.                       |
+| Software | Git                  | Herramienta de control de versiones.                       |
 | Servicio | GitHub               | Repositorio en la nube para el control de versiones git. |
-| Software | Jenkins v2.375.3 LTS | Herramienta para la intergracion continua                 |
+| Software | Java 17 o 21         | Software para soportar ficheros .war y .jar                 |
+| Software | Jenkins v2.504.2 LTS | Herramienta para la intergracion continua                 |
 | Software | NodeJS               | *Necesario para instalar la herramienta newman*         |
 | Software | newman (cli)         | Cliente de linea de comandos de Postman                   |
 | Software | jenkins-cli          | Cliente de linea de comandos de Jenkins                   |
@@ -120,6 +121,16 @@ De acuerdo a lo indicado en el punto "4. Entorno de Pruebas" se realiza la confi
 **Newman**
 
 - Verificamos que el comando exista ejecutando el comando: `newman --version`
+
+**Java**
+
+- Instalar Java 17 según las instrucciones oficiales para Windows (https://docs.oracle.com/en/java/javase/17/install/overview-jdk-installation.html).
+
+- Verificar con:
+
+  ```
+  java --version
+  ```
 
 **Jenkins**
 
@@ -206,9 +217,9 @@ El proyecto es aprobado si se satisface los siguientes criterios de aceptación:
 | Tipo de Prueba                                  | Tipo de Ejecución       | Entregable                                        | Descripción                                                                                                                                                                                                      |
 | :---------------------------------------------- | :----------------------- | :------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Pruebas Funcionales<br />Pruebas No Funcionales | Automatizada             | ***TEST_CASES.DataEntry***                | La carpeta contiene el set de datos necesarios para las pruebas.<br />Existe un archivo JSON por cada caso de prueba.<br />No todos los archivos tienen contenido, pero se crearon a fin de mantener el orden.    |
-| Pruebas Funcionales<br />Pruebas No Funcionales | Automatizada             | ***TEST_CASES.postman_collection.json***  | Este entregable es el archivo JSON que contiene toda la colección de preubas.<br />Estas preubas fueron diseñadas y creadas en postman.<br />Este archivo es resultado de exportar la colección desde postman. |
+| Pruebas Funcionales<br />Pruebas No Funcionales | Automatizada             | ***TEST_CASES.postman_collection.json***  | Este entregable es el archivo JSON que contiene toda la colección de pruebas.<br />Estas pruebas fueron diseñadas y creadas en postman.<br />Este archivo es resultado de exportar la colección desde postman. |
 | Pruebas Funcionales<br />Pruebas No Funcionales | Automatizada             | ***TEST_CASES.postman_environment.json*** | Este archivo es resultado de exportar la configuración del entorno desde postman.<br />Es necesario para la automatización, pues contiene valores inciciales de la pruebas.                                     |
 | N/A                                             | N/A                      | ***TEST_CASES.md***                       | Lista de casos de pruebas elaborados y posteriormente implemetados en postman.                                                                                                                                    |
 | N/A                                             | Automatizada             | ***TEST_CASES.jenkins_job.xml***          | Archivo de configuración de del JOB necesario para la integración continua en Jenkins.                                                                                                                          |
 | N/A                                             | Manual<br />Automatizada | ***TEST_CASES.build_steps.bat***          | Archivo de instrucciones de postman (newman) necesario para la creacion de JOB en Jenkins.                                                                                                                        |
-| N/A                                             | Manual                   | ***resources/jenkins-cli.jar***           | Aplicativo que nos permite importar la configuración del Job en Jenkins.                                                                                                                                         |
+| N/A                                             | Manual                   | ***resources/jenkins-cli.jar***           | Herramienta que nos permite importar la configuración del Job en Jenkins.                                                                                                                                         |

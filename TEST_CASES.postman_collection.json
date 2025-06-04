@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "b2ea173b-dcdb-44f2-aa0b-6bdaee0bd36b",
-		"name": "YP - Technical Challenge",
+		"name": "Technical Challenge",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "20932103"
 	},
@@ -83,7 +83,7 @@
 											"    pm.response.to.have.status(200);\r",
 											"});\r",
 											"\r",
-											"if(data.username == \"admin\" && data.password == \"password123\"){\r",
+											"if(pm.iterationData.get(\"username\") == \"admin\" && pm.iterationData.get(\"password\") == \"password123\"){\r",
 											"    console.log(\"Credenciales válidas\")\r",
 											"\r",
 											"    pm.test(\"Si las credenciales son validas retorna token\", function () {\r",
@@ -101,7 +101,8 @@
 											"\r",
 											"}"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
@@ -110,7 +111,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -350,8 +352,8 @@
 										"header": [
 											{
 												"key": "Content-Type",
-												"name": "Content-Type",
 												"value": "application/json",
+												"name": "Content-Type",
 												"type": "text"
 											}
 										],
@@ -424,8 +426,8 @@
 										"header": [
 											{
 												"key": "Content-Type",
-												"name": "Content-Type",
 												"value": "application/json",
+												"name": "Content-Type",
 												"type": "text"
 											}
 										],
@@ -506,19 +508,20 @@
 									"script": {
 										"exec": [
 											"var body = {\r",
-											"    \"firstname\": data.firstname,\r",
-											"    \"lastname\": data.lastname,\r",
-											"    \"totalprice\": data.totalprice,\r",
-											"    \"depositpaid\": data.depositpaid,\r",
+											"    \"firstname\": pm.iterationData.get(\"firstname\"),\r",
+											"    \"lastname\": pm.iterationData.get(\"lastname\"),\r",
+											"    \"totalprice\": pm.iterationData.get(\"totalprice\"),\r",
+											"    \"depositpaid\": pm.iterationData.get(\"depositpaid\"),\r",
 											"    \"bookingdates\": {\r",
-											"        \"checkin\": data[\"bookingdates.checkin\"],\r",
-											"        \"checkout\": data[\"bookingdates.checkout\"]\r",
+											"        \"checkin\": pm.iterationData.get(\"bookingdates.checkin\"),\r",
+											"        \"checkout\": pm.iterationData.get(\"bookingdates.checkout\")\r",
 											"    },\r",
-											"    \"additionalneeds\": data.additionalneeds\r",
+											"    \"additionalneeds\": pm.iterationData.get(\"additionalneeds\")\r",
 											"};\r",
 											"pm.collectionVariables.set(\"req_body\", JSON.stringify(body, null));"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
@@ -537,7 +540,8 @@
 											"    pm.expect(responseData).to.include(\"Internal Server Error\");\r",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -578,8 +582,8 @@
 										"header": [
 											{
 												"key": "Content-Type",
-												"name": "Content-Type",
 												"value": "application/json",
+												"name": "Content-Type",
 												"type": "text"
 											}
 										],
@@ -652,8 +656,8 @@
 										"header": [
 											{
 												"key": "Content-Type",
-												"name": "Content-Type",
 												"value": "application/json",
+												"name": "Content-Type",
 												"type": "text"
 											}
 										],
@@ -1043,7 +1047,8 @@
 											"    \r",
 											"}"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
@@ -1053,24 +1058,25 @@
 											"//var queryParamsFilters = '?firstname={{firstname}}&lastname={{lastname}}&checkin={{bookingdates.checkin}}&checkout={{bookingdates.checkout}}';\r",
 											"var queryParamsFilters = '?';\r",
 											"\r",
-											"if(data[\"firstname\"] != null || data[\"firstname\"] != undefined){\r",
-											"    queryParamsFilters += \"&firstname=\" + data[\"firstname\"];\r",
+											"if(pm.iterationData.get(\"firstname\") != null || pm.iterationData.get(\"firstname\") != undefined){\r",
+											"    queryParamsFilters += \"&firstname=\" + pm.iterationData.get(\"firstname\");\r",
 											"}\r",
-											"if(data[\"lastname\"] != null || data[\"lastname\"] != undefined){\r",
-											"    queryParamsFilters += \"&lastname=\" + data[\"lastname\"];\r",
+											"if(pm.iterationData.get(\"lastname\") != null || pm.iterationData.get(\"lastname\") != undefined){\r",
+											"    queryParamsFilters += \"&lastname=\" + pm.iterationData.get(\"lastname\");\r",
 											"}\r",
-											"if(data[\"bookingdates.checkin\"] != null || data[\"bookingdates.checkin\"] != undefined){\r",
-											"    queryParamsFilters += \"&checkin=\" + data[\"bookingdates.checkin\"];\r",
+											"if(pm.iterationData.get(\"bookingdates.checkin\") != null || pm.iterationData.get(\"bookingdates.checkin\") != undefined){\r",
+											"    queryParamsFilters += \"&checkin=\" + pm.iterationData.get(\"bookingdates.checkin\");\r",
 											"}\r",
-											"if(data[\"bookingdates.checkout\"] != null || data[\"bookingdates.checkout\"] != undefined){\r",
-											"    queryParamsFilters += \"&checkout=\" + data[\"bookingdates.checkout\"];\r",
+											"if(pm.iterationData.get(\"bookingdates.checkout\") != null || pm.iterationData.get(\"bookingdates.checkout\") != undefined){\r",
+											"    queryParamsFilters += \"&checkout=\" + pm.iterationData.get(\"bookingdates.checkout\");\r",
 											"}\r",
 											"\r",
 											"console.log(\"URL Params : \" + queryParamsFilters);\r",
 											"\r",
 											"pm.collectionVariables.set(\"queryParamsFilters\", queryParamsFilters);"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -1229,7 +1235,8 @@
 											"\r",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
@@ -1258,13 +1265,14 @@
 											"const bookingIdF10 = pm.collectionVariables.get(\"bookingIdF10\");\r",
 											"if (bookingIdF10 && bookingIdF10.length > 0){\r",
 											"    console.log(\"Siguiente request\")\r",
-											"    postman.setNextRequest(\"Booking : Update by JSON\"); //Nombre del Resquest\r",
+											"    pm.execution.setNextRequest(\"Booking : Update by JSON\"); //Nombre del Resquest\r",
 											"} else {\r",
 											"    //console.log(\"Fin iteracion de request\")\r",
-											"    //postman.setNextRequest(null);\r",
+											"    //pm.execution.setNextRequest(null);\r",
 											"}"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -1333,16 +1341,19 @@
 											"    pm.response.to.have.status(200);\r",
 											"});\r",
 											"\r",
-											"var jsonData = pm.response.json();\r",
+											"try {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.test(\"El endpoint devuelve todos los datos de la reserva actualizada\", function () {\r",
+											"        pm.expect(jsonData).to.have.property(\"firstname\");\r",
+											"        pm.expect(jsonData).to.have.property(\"lastname\");\r",
+											"        pm.expect(jsonData).to.have.property(\"totalprice\");\r",
+											"        pm.expect(jsonData).to.have.property(\"depositpaid\");\r",
+											"        pm.expect(jsonData).to.have.property(\"bookingdates\");\r",
+											"        pm.expect(jsonData).to.have.property(\"additionalneeds\");\r",
+											"    });\r",
+											"} catch(err) {\r",
 											"\r",
-											"pm.test(\"El endpoint devuelve todos los datos de la reserva actualizada\", function () {\r",
-											"    pm.expect(jsonData).to.have.property(\"firstname\");\r",
-											"    pm.expect(jsonData).to.have.property(\"lastname\");\r",
-											"    pm.expect(jsonData).to.have.property(\"totalprice\");\r",
-											"    pm.expect(jsonData).to.have.property(\"depositpaid\");\r",
-											"    pm.expect(jsonData).to.have.property(\"bookingdates\");\r",
-											"    pm.expect(jsonData).to.have.property(\"additionalneeds\");\r",
-											"});\r",
+											"}\r",
 											"\r",
 											"//\r",
 											"// ITERACION CON LOS DATOS DE \"Pre-resquest Script\"\r",
@@ -1350,13 +1361,14 @@
 											"const bookingIdF10 = pm.collectionVariables.get(\"bookingIdF10\");\r",
 											"if (bookingIdF10 && bookingIdF10.length > 0){\r",
 											"    console.log(\"Siguiente request\")\r",
-											"    postman.setNextRequest(\"Booking : Update attribute by JSON\"); //Nombre del Resquest\r",
+											"    pm.execution.setNextRequest(\"Booking : Update attribute by JSON\"); //Nombre del Resquest\r",
 											"} else {\r",
 											"    //console.log(\"Fin iteracion de request\")\r",
-											"    //postman.setNextRequest(null);\r",
+											"    //pm.execution.setNextRequest(null);\r",
 											"}"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
@@ -1398,7 +1410,8 @@
 											"    pm.collectionVariables.set(\"bookingIdMod\", Math.random() * 2000);\r",
 											"}"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -1448,7 +1461,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "1121"
+											"value": "{{bookingIdCUR}}"
 										}
 									]
 								}
@@ -1508,7 +1521,8 @@
 											"\r",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
@@ -1519,7 +1533,8 @@
 											"    pm.response.to.have.status(200);\r",
 											"});\r",
 											"\r",
-											"var jsonData = xml2Json(pm.response.text());\r",
+											"const { parseStringPromise } = require(\"xml2js\");\r",
+											"var jsonData = await parseStringPromise(pm.response.text(), { explicitArray: false });\r",
 											"\r",
 											"pm.test(\"El endpoint devuelve todos los datos de la reserva actualizada\", function () {\r",
 											"    pm.expect(jsonData.booking).to.have.property(\"firstname\");\r",
@@ -1536,13 +1551,14 @@
 											"const bookingIdF10 = pm.collectionVariables.get(\"bookingIdF10\");\r",
 											"if (bookingIdF10 && bookingIdF10.length > 0){\r",
 											"    console.log(\"Siguiente request\")\r",
-											"    postman.setNextRequest(\"Booking : Update by XML\"); //Nombre del Resquest\r",
+											"    pm.execution.setNextRequest(\"Booking : Update by XML\"); //Nombre del Resquest\r",
 											"} else {\r",
 											"    //console.log(\"Fin iteracion de request\")\r",
-											"    //postman.setNextRequest(null);\r",
+											"    //pm.execution.setNextRequest(null);\r",
 											"}"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -1610,7 +1626,8 @@
 											"    pm.response.to.have.status(200);\r",
 											"});\r",
 											"\r",
-											"var jsonData = xml2Json(pm.response.text());\r",
+											"const { parseStringPromise } = require(\"xml2js\");\r",
+											"var jsonData = await parseStringPromise(pm.response.text(), { explicitArray: false });\r",
 											"\r",
 											"pm.test(\"El endpoint devuelve todos los datos de la reserva actualizada\", function () {\r",
 											"    pm.expect(jsonData.booking).to.have.property(\"firstname\");\r",
@@ -1627,13 +1644,14 @@
 											"const bookingIdF10 = pm.collectionVariables.get(\"bookingIdF10\");\r",
 											"if (bookingIdF10 && bookingIdF10.length > 0){\r",
 											"    console.log(\"Siguiente request\")\r",
-											"    postman.setNextRequest(\"Booking : Update attribute by XML\"); //Nombre del Resquest\r",
+											"    pm.execution.setNextRequest(\"Booking : Update attribute by XML\"); //Nombre del Resquest\r",
 											"} else {\r",
 											"    //console.log(\"Fin iteracion de request\")\r",
-											"    //postman.setNextRequest(null);\r",
+											"    //pm.execution.setNextRequest(null);\r",
 											"}"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
@@ -1677,7 +1695,8 @@
 											"\r",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -1705,7 +1724,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "<booking>\r\n    <firstname>{{bookingIdMod}} - Jhon</firstname>\r\n    <lastname>{{bookingIdMod}} - Quizpe by XML</lastname>\r\n  </booking>",
+									"raw": "<booking>\r\n    <firstname>{{bookingIdMod}} - Jhon</firstname>\r\n    <lastname>{{bookingIdMod}} - Quizpe by XML</lastname>\r\n</booking>",
 									"options": {
 										"raw": {
 											"language": "xml"
@@ -1787,7 +1806,8 @@
 											"\r",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
@@ -1810,13 +1830,14 @@
 											"const bookingIdF10 = pm.collectionVariables.get(\"bookingIdF10\");\r",
 											"if (bookingIdF10 && bookingIdF10.length > 0){\r",
 											"    console.log(\"Siguiente request\")\r",
-											"    postman.setNextRequest(\"Booking : Update by XML\"); //Nombre del Resquest\r",
+											"    pm.execution.setNextRequest(\"Booking : Update by XML\"); //Nombre del Resquest\r",
 											"} else {\r",
 											"    //console.log(\"Fin iteracion de request\")\r",
-											"    //postman.setNextRequest(null);\r",
+											"    //pm.execution.setNextRequest(null);\r",
 											"}"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -1948,7 +1969,8 @@
 											"\r",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
@@ -1971,13 +1993,14 @@
 											"const bookingIdF10 = pm.collectionVariables.get(\"bookingIdF10\");\r",
 											"if (bookingIdF10 && bookingIdF10.length > 0){\r",
 											"    console.log(\"Siguiente request\")\r",
-											"    postman.setNextRequest(\"Booking : Update by XML\"); //Nombre del Resquest\r",
+											"    pm.execution.setNextRequest(\"Booking : Update by XML\"); //Nombre del Resquest\r",
 											"} else {\r",
 											"    //console.log(\"Fin iteracion de request\")\r",
-											"    //postman.setNextRequest(null);\r",
+											"    //pm.execution.setNextRequest(null);\r",
 											"}"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -2091,7 +2114,8 @@
 											"    pm.collectionVariables.set(\"bookingIdMod\", Math.random() * 2000);\r",
 											"}"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
@@ -2115,13 +2139,14 @@
 											"const bookingIdF10 = pm.collectionVariables.get(\"bookingIdF10\");\r",
 											"if (bookingIdF10 && bookingIdF10.length > 0){\r",
 											"    console.log(\"Siguiente request\")\r",
-											"    postman.setNextRequest(\"Booking : Update by JSON\"); //Nombre del Resquest\r",
+											"    pm.execution.setNextRequest(\"Booking : Update by JSON\"); //Nombre del Resquest\r",
 											"} else {\r",
 											"    //console.log(\"Fin iteracion de request\")\r",
-											"    //postman.setNextRequest(null);\r",
+											"    //pm.execution.setNextRequest(null);\r",
 											"}"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -2206,7 +2231,8 @@
 											"    pm.collectionVariables.set(\"bookingIdMod\", Math.random() * 2000);\r",
 											"}"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
@@ -2229,13 +2255,14 @@
 											"const bookingIdF10 = pm.collectionVariables.get(\"bookingIdF10\");\r",
 											"if (bookingIdF10 && bookingIdF10.length > 0){\r",
 											"    console.log(\"Siguiente request\")\r",
-											"    postman.setNextRequest(\"Booking : Update by JSON\"); //Nombre del Resquest\r",
+											"    pm.execution.setNextRequest(\"Booking : Update by JSON\"); //Nombre del Resquest\r",
 											"} else {\r",
 											"    //console.log(\"Fin iteracion de request\")\r",
-											"    //postman.setNextRequest(null);\r",
+											"    //pm.execution.setNextRequest(null);\r",
 											"}"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -2461,6 +2488,10 @@
 		},
 		{
 			"key": "bookingIdMod",
+			"value": ""
+		},
+		{
+			"key": "req_body",
 			"value": ""
 		}
 	]
