@@ -25,22 +25,22 @@
 
 ##### Documentos relacionados
 
-| Descripcion                           | Origen/Fuente                                                                                                 | Version |
+| Descripción                           | Origen/Fuente                                                                                                 | Version |
 | :------------------------------------ | :------------------------------------------------------------------------------------------------------------ | :------ |
-| Definicion del sistema Booker         | [https://restful-booker.herokuapp.com/apidoc/index.html](https://restful-booker.herokuapp.com/apidoc/index.html) | v1.0.0  |
-| Especificacion del API Restful Booker | [https://restful-booker.herokuapp.com/apidoc/index.html](https://restful-booker.herokuapp.com/apidoc/index.html) | v1.0.0  |
+| Definición del sistema Booker         | [https://restful-booker.herokuapp.com/apidoc/index.html](https://restful-booker.herokuapp.com/apidoc/index.html) | v1.0.0  |
+| Especificación del API Restful Booker | [https://restful-booker.herokuapp.com/apidoc/index.html](https://restful-booker.herokuapp.com/apidoc/index.html) | v1.0.0  |
 
 ### 2. Objetivo
 
-La finalidad del presente documento es definir las pautas y estrategias que nos permitiran cumplir con la certificacion de calidad del componente 010100 del sistema Booker.
+La finalidad del presente documento es definir las pautas y estrategias que nos permitirán cumplir con la certificación de calidad del componente 010100 del sistema Booker.
 
 El objetivo general es definir las condiciones que nos permitan ejecutar las pruebas y en consecuencia nos entregue un sistema que cumpla con las funcionalidades requeridas por todos los interesados.
 
-El plan de pruebas debe incluir las pautas necesarias para recrear un ambiente de pruebas automatizados y de integracion continua.
+El plan de pruebas debe incluir las pautas necesarias para recrear un ambiente de pruebas automatizados y de integración continua.
 
 ### 3. Alcance
 
-El presente documento cumple con servir de guía en el proceso de ejecucion de pruebas para los responsables del proyecto.
+El presente documento cumple con servir de guía en el proceso de ejecución de pruebas para los responsables del proyecto.
 
 El plan de pruebas se enmarca al modulo 010100 del sistema Booker la cual corresponde a funcionalidades del API Restful definidas (Ver punto 1 en "Documentos relacionados").
 
@@ -63,19 +63,19 @@ El plan de pruebas se enmarca al modulo 010100 del sistema Booker la cual corres
 | Software | Git                  | Herramienta de control de versiones.                       |
 | Servicio | GitHub               | Repositorio en la nube para el control de versiones git. |
 | Software | Java 17 o 21         | Software para soportar ficheros .war y .jar                 |
-| Software | Jenkins v2.504.2 LTS | Herramienta para la intergracion continua                 |
+| Software | Jenkins v2.504.2 LTS | Herramienta para la integración continua                 |
 | Software | NodeJS               | *Necesario para instalar la herramienta newman*         |
 | Software | newman (cli)         | Cliente de linea de comandos de Postman                   |
 | Software | jenkins-cli          | Cliente de linea de comandos de Jenkins                   |
 
-### 5. Configuracion del Entorno de Pruebas
+### 5. Configuración del Entorno de Pruebas
 
-De acuerdo a lo indicado en el punto "4. Entorno de Pruebas" se realiza la configuracion del entorno de pruebas.
+De acuerdo a lo indicado en el punto "4. Entorno de Pruebas" se realiza la configuración del entorno de pruebas.
 
-##### Instalacion y cuentas
+##### Instalación y cuentas
 
 - Descargar el sistema de control de versiones desde la url https://git-scm.com/download/win en su version para el SO Windows.
-- Descargar e instalar el sistema adminsitrador de control de versiones SourceTree desde la url https://www.sourcetreeapp.com/ en su version para el SO Windows.
+- Descargar e instalar el sistema administrador de control de versiones SourceTree desde la url https://www.sourcetreeapp.com/ en su version para el SO Windows.
 - Descargar e instalar el editor/ide VScode desde la url https://code.visualstudio.com/sha/download?build=stable&os=win32-x64.
 - Descargar e instalar Postman; la descarga del instalador se realiza desde la url https://www.postman.com/downloads/ en su version para el SO Windows.
 - Crear una cuenta en el servicio cloud de control de versiones https://github.com/.
@@ -87,12 +87,12 @@ De acuerdo a lo indicado en el punto "4. Entorno de Pruebas" se realiza la confi
 **Postman**
 
 - Abrir el aplicativo instalador y crear un espacio de trabajo (workspace) especifico para las labores de pruebas.
-- Nos ubicamos en el workpace creado y añadimos una colección en la cual se almacenara los objetivos/scripts de pruebas.
-- Nos ubicamos en la configuracion de entorno (enviroments) del aplicativo y creamos el entorno QA Env, en este entorno se almacenara las variables de entorno necesarias para los scripts de pruebas en Postman.
+- Nos ubicamos en el workspace creado y añadimos una colección en la cual se almacenara los objetivos/scripts de pruebas.
+- Nos ubicamos en la configuración de entorno (environments) del aplicativo y creamos el entorno QA Env, en este entorno se almacenara las variables de entorno necesarias para los scripts de pruebas en Postman.
 - Para llevar el control del archivo de postman en GitHub podemos realizar alguna de las siguientes acciones:
 
   - Configurar el workspace de postman dentro del espacio de trabajo local (Carpeta clonada con SourceTree).
-  - Cada que vayamos avanzando con la creacion de nuestro script en Postman, exportemos la colleccion y lo coloquemos en el espacion de trabajo local (Carpeta clonada con SourceTree).
+  - Cada que vayamos avanzando con la creación de nuestro script en Postman, exportemos la colección y lo coloquemos en el espacio de trabajo local (Carpeta clonada con SourceTree).
 
 **GitHub**
 
@@ -100,15 +100,15 @@ De acuerdo a lo indicado en el punto "4. Entorno de Pruebas" se realiza la confi
 
 **SourceTree**
 
-- Abrimos el aplicativo, seguimos los pasos que nos indica para el uso del aplicativo (solo la primera vez que se inicia), una vez que estamos en la interfaz principal nos ubicamos en la opcion "*File - Clone/New*", seleccionamos la opción Clone e ingresamos los datos que nos solicita dicha interfaz:
+- Abrimos el aplicativo, seguimos los pasos que nos indica para el uso del aplicativo (solo la primera vez que se inicia), una vez que estamos en la interfaz principal nos ubicamos en la opción "*File - Clone/New*", seleccionamos la opción Clone e ingresamos los datos que nos solicita dicha interfaz:
 
   - La url del repositorio, creado previamente en GitHub.
   - La ruta local donde se clonará el repositorio en nuestro equipo de trabajo. Esta ruta será nuestro espacio de trabajo local para este plan de pruebas.
-- Una vez clonado el repositorio de GitHub, verificamos la creacion de nuestro espacion de trabajo, de acuerdo a configuraciones previas nuestra carpeta debe tener el nombre "YpTest_APIBooker". *Ejm: D:\Workspace\Yape\YpTest_APIBooker*
+- Una vez clonado el repositorio de GitHub, verificamos la creación de nuestro espacio de trabajo, de acuerdo a configuraciones previas nuestra carpeta debe tener el nombre "YpTest_APIBooker". *Ejm: D:\Workspace\Yape\YpTest_APIBooker*
 
 **VSCode**
 
-- Abrimos el aplicativo, nos uicamos en la opcion *"**File - Open Folder"* y abrimos el forlder "YpTest_APIBooker" que corresponde a nuestro espacio de trabajo. Aqui trabajemos con los archivos necesarios para el plan de pruebas.
+- Abrimos el aplicativo, nos ubicamos en la opción *"**File - Open Folder"* y abrimos el folder "YpTest_APIBooker" que corresponde a nuestro espacio de trabajo. Aquí trabajemos con los archivos necesarios para el plan de pruebas.
 
 **NodeJS**
 
@@ -134,23 +134,23 @@ De acuerdo a lo indicado en el punto "4. Entorno de Pruebas" se realiza la confi
 
 **Jenkins**
 
-- Con el archivo war descargado, crear una ruta de instalacion manual para Jenkins, como por Ejm: *D:\Workspace\Jenkins* y en ella colocar el archivo war.
-- Crear una archivo de configuracion (runJenkins.bat) de inicio de Jenkins.
+- Con el archivo war descargado, crear una ruta de instalación manual para Jenkins, como por Ejm: *D:\Workspace\Jenkins* y en ella colocar el archivo war.
+- Crear una archivo de configuración (runJenkins.bat) de inicio de Jenkins.
 
   ```
   set JENKINS_HOME=local-jenkins-config
   java -Dfile.encoding=UTF-8 -jar jenkins.war --httpPort=9090
   ```
 
-  Ejecutar *runJenkins.bat* para inciar Jenkins en la ruta: *localhost:9090*
-- Al ejecutar Jenkins por primera vez dejar la configuracion por defecto y establecer el usuario y clave.
+  Ejecutar *runJenkins.bat* para iniciar Jenkins en la ruta: *localhost:9090*
+- Al ejecutar Jenkins por primera vez dejar la configuración por defecto y establecer el usuario y clave.
 - Al ingresar al panel de control de Jenkins por primera vez, instalar el plugin NodeJS, reiniciar Jenkins.
-- Volvemos a ingresar a Jenkins en la opcion *"Panel de Control / Administrar Jenkins / Global Tool Configuration"* y ubicamos la seccion NodeJS, en ella pulsamos en *"Añadir NodeJS"*, colocamos un nombre (Ejm. My Local NodeJS), quitamos el check *"Instalar automaticamente"* y finalmente ingresamos nuestro directorio de instalacion de NodeJS (Ejm: *D:\Program Files\nodejs*). Guardamos los cambios y salimos.
+- Volvemos a ingresar a Jenkins en la opción *"Panel de Control / Administrar Jenkins / Global Tool Configuration"* y ubicamos la sección NodeJS, en ella pulsamos en *"Añadir NodeJS"*, colocamos un nombre (Ejm. My Local NodeJS), quitamos el check *"Instalar automáticamente"* y finalmente ingresamos nuestro directorio de instalación de NodeJS (Ejm: *D:\Program Files\nodejs*). Guardamos los cambios y salimos.
 - *NOTA:* Si queremos programar un cron en Jenkins tomar como referencia esta herramienta: *https://crontab.cronhub.io/*
 
-### 6. Estrategías de Pruebas
+### 6. Estrategias de Pruebas
 
-Para el cumplimiento de los objetivos se plantean estrategías de pruebas las cuales estarán en funcion a los siguientes tipos, niveles y técnicas de pruebas.
+Para el cumplimiento de los objetivos se plantean estrategias de pruebas las cuales estarán en función a los siguientes tipos, niveles y técnicas de pruebas.
 
 | Tipo de Prueba      | Nivel de Prueba       | Técnica de Prueba                                                             |
 | :------------------ | :-------------------- | :----------------------------------------------------------------------------- |
@@ -159,39 +159,39 @@ Para el cumplimiento de los objetivos se plantean estrategías de pruebas las cu
 
 ###### Actividades estratégicas:
 
-- Identificar y analizar la documentacion del objeto de prueba.
+- Identificar y analizar la documentación del objeto de prueba.
 - Considerando el alcance del plan de pruebas de debe reconocer y aplicar los conocimientos del probador para el uso optimo de las herramientas de pruebas.
-- Los probadores (testers) deben identificar los roles y responsabilidades de los miembros del proyecto a fin de tener una reaccion temprana ante posibles eventos fuera del alacance del probador.
-- Se indentifica en un primer momento las funcionalidades de camino feliz (Happy Path).
-- Se analiza funcionalidades alternativas no esperadas o no contempladas en la definicion del sistema (Unhappy Path).
-- Se diseña y contruye los casos de pruebas considerando las funciones principales (core) del sistema o módulo.
+- Los probadores (testers) deben identificar los roles y responsabilidades de los miembros del proyecto a fin de tener una reacción temprana ante posibles eventos fuera del alcance del probador.
+- Se identifica en un primer momento las funcionalidades de camino feliz (Happy Path).
+- Se analiza funcionalidades alternativas no esperadas o no contempladas en la definición del sistema (Unhappy Path).
+- Se diseña y construye los casos de pruebas considerando las funciones principales (core) del sistema o módulo.
 - Se elabora uno o varios set de datos de entrada para los casos de pruebas definidos según sea requerido por la misma.
-- Se automariza las pruebas haciendo uso de las herramientas definidas en el punto "Entorno de Pruebas / Herramientas".
-- Para conservar los avances de los archivos y entregables de pruebas se hace uso del sistema de control de versiones.
+- Se automatiza las pruebas haciendo uso de las herramientas definidas en el punto "Entorno de Pruebas / Herramientas".
+- Para conservar los avances de los archivos y objetos de pruebas se hace uso del sistema de control de versiones.
 
 ### 7. Escenario de Pruebas
 
 Dado las funcionalidades definidas para el sistema objeto (Ver punto 1 en "Documentos relacionados") de este plan de pruebas se debe abordar los escenarios de pruebas:
 
-a) Comprobacion de disponibilidad del sistema (API).
+a) Comprobación de disponibilidad del sistema (API).
 
-b) Generacion de Token válido.
+b) Generación de Token válido.
 
-c) Las operaciones de lectura deben devolver objetos en la estructura definida en la documentacion del sistema.
+c) Las operaciones de lectura deben devolver objetos en la estructura definida en la documentación del sistema.
 
-d) Las operaciones de creacion, modificación y eliminación deben retornar la confirmación de la correcta ejecución de la operación.
+d) Las operaciones de creación, modificación y eliminación deben retornar la confirmación de la correcta ejecución de la operación.
 
 e) Todas las operaciones cumplen su funcionalidad siempre que se cumpla con los formatos de los datos de entrada.
 
-f) Todas las operaciones devuleven error (controlado o no) si no se cumple con la especificacion/estructura definida para los datos de entrada.
+f) Todas las operaciones devuelven error (controlado o no) si no se cumple con la especificación/estructura definida para los datos de entrada.
 
 e) Otros escenarios contemplados por el probador según lo requiera.
 
 ### 8. Diseño de Pruebas
 
-Haciendo uso de el o los documentos de definicion del sistema y en concordancia con los escenarios de pruebas contemplados a efecto de este plan de pruebas, se constuye los casos de pruebas.
+Haciendo uso de el o los documentos de definición del sistema y en concordancia con los escenarios de pruebas contemplados a efecto de este plan de pruebas, se construye los casos de pruebas.
 
-Los casos de pruebas son de tipo funcional y no funcional siendo asi que debn cumplir con:
+Los casos de pruebas son de tipo funcional y no funcional siendo asi que deben cumplir con:
 
 - Prefijo y nombre de caso de prueba.
 - Pre-requisitos y requisitos del caso de prueba.
@@ -212,14 +212,14 @@ El proyecto es aprobado si se satisface los siguientes criterios de aceptación:
 | 1    | El sistema/módulo debe cumplir satisfactoriamente el 100% de las ejecuciones de los casos de pruebas funcionales.    |
 | 2    | El sistema/módulo debe cumplir satisfactoriamente el 100% de las ejecuciones de los casos de pruebas no funcionales. |
 
-### 10. Entregables de Pruebas
+### 10. Producto de trabajo de pruebas
 
-| Tipo de Prueba                                  | Tipo de Ejecución       | Entregable                                        | Descripción                                                                                                                                                                                                      |
+| Tipo de Prueba                                  | Tipo de Ejecución       | Producto                               | Descripción                                                                                                                                                                                                      |
 | :---------------------------------------------- | :----------------------- | :------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Pruebas Funcionales<br />Pruebas No Funcionales | Automatizada             | ***TEST_CASES.DataEntry***                | La carpeta contiene el set de datos necesarios para las pruebas.<br />Existe un archivo JSON por cada caso de prueba.<br />No todos los archivos tienen contenido, pero se crearon a fin de mantener el orden.    |
-| Pruebas Funcionales<br />Pruebas No Funcionales | Automatizada             | ***TEST_CASES.postman_collection.json***  | Este entregable es el archivo JSON que contiene toda la colección de pruebas.<br />Estas pruebas fueron diseñadas y creadas en postman.<br />Este archivo es resultado de exportar la colección desde postman. |
-| Pruebas Funcionales<br />Pruebas No Funcionales | Automatizada             | ***TEST_CASES.postman_environment.json*** | Este archivo es resultado de exportar la configuración del entorno desde postman.<br />Es necesario para la automatización, pues contiene valores inciciales de la pruebas.                                     |
-| N/A                                             | N/A                      | ***TEST_CASES.md***                       | Lista de casos de pruebas elaborados y posteriormente implemetados en postman.                                                                                                                                    |
+| Pruebas Funcionales<br />Pruebas No Funcionales | Automatizada             | ***TEST_CASES.postman_collection.json***  | Este producto es el archivo JSON que contiene toda la colección de pruebas.<br />Estas pruebas fueron diseñadas y creadas en postman.<br />Este archivo es resultado de exportar la colección desde postman. |
+| Pruebas Funcionales<br />Pruebas No Funcionales | Automatizada             | ***TEST_CASES.postman_environment.json*** | Este archivo es resultado de exportar la configuración del entorno desde postman.<br />Es necesario para la automatización, pues contiene valores iniciales de la pruebas.                                     |
+| N/A                                             | N/A                      | ***TEST_CASES.md***                       | Lista de casos de pruebas elaborados y posteriormente implementados en postman.                                                                                                                                    |
 | N/A                                             | Automatizada             | ***TEST_CASES.jenkins_job.xml***          | Archivo de configuración de del JOB necesario para la integración continua en Jenkins.                                                                                                                          |
-| N/A                                             | Manual<br />Automatizada | ***TEST_CASES.build_steps.bat***          | Archivo de instrucciones de postman (newman) necesario para la creacion de JOB en Jenkins.                                                                                                                        |
+| N/A                                             | Manual<br />Automatizada | ***TEST_CASES.build_steps.bat***          | Archivo de instrucciones de postman (newman) necesario para la creación de JOB en Jenkins.                                                                                                                        |
 | N/A                                             | Manual                   | ***resources/jenkins-cli.jar***           | Herramienta que nos permite importar la configuración del Job en Jenkins.                                                                                                                                         |

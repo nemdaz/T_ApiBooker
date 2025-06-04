@@ -1,43 +1,36 @@
-# **TEST BOOKER**
+# **TEST API BOOKER**
 
-# DESAFÍO
+# OBJETIVO
 
-###### Actividades a desarrollar
-
-1. Proponga usted el plan de pruebas a desarrollar para realizar la automatización de pruebas según la funcionalidad indicada en el **Anexo 1.**
-2. Implemente el código necesario para la creación del script de pruebas automatizadas según la funcionalidad indicada en el **Anexo 1** e indique la cobertura de pruebas obtenida por el script.
-3. Indique las herramientas y técnicas utilizadas para realizar la automatización de la funcionalidad descrita en el **Anexo 1**.
-
-###### Consideraciones:
-
-* Crear una colección en postman que permita realizar pruebas manuales a los servicios web.
-* Automatizar las funcionalidades de: *Auth*, *Booking* y *Ping*.
-* Considerar en la automatización de pruebas los métodos http: POST, GET, PUT, PATCH, DELETE.
-* Considerar la creación de escenarios Happy Paths y UnHappy Paths.
-* Considerar en la automatización todas las aserciones posibles.
-
-###### Anexo 1
-
-En la página [https://restful-booker.herokuapp.com/apidoc/index.html](https://restful-booker.herokuapp.com/apidoc/index.html) podrá acceder a la documentación del api de reservas.
+1. Desarrollar el Plan de Pruebas para la automatización (API de reservas) según la documentación.
+   * Booker:[https://restful-booker.herokuapp.com/apidoc/index.html](https://restful-booker.herokuapp.com/apidoc/index.html)
+2. Desarrollar los scripts de pruebas automatizadas e indicar la cobertura de pruebas obtenida por el script.
+   * Crear una colección en postman que permita realizar pruebas manuales a los servicios web.
+   * Automatizar las funcionalidades de:*Auth*,*Booking* y*Ping*.
+   * Considerar en la automatización de pruebas los métodos http: POST, GET, PUT, PATCH, DELETE.
+   * Considerar la creación de escenarios Happy Paths y UnHappy Paths.
+   * Considerar en la automatización todas las aserciones posibles.
+3. Especificar las herramientas y técnicas utilizadas.
 
 # SOLUCIÓN
 
-> ***Nota**: Se sugiere visualizar los archivos **.md** directamente en el repositorio Github o usar un editor local si se descarga el proyecto.*
-
 ###### 1. Plan de Pruebas
 
-- El archivo ***[Plan de Pruebas](./TEST_PLAN.md)*** es:[TEST_PLAN.md](./TEST_PLAN.md).
-- El archivo ***[Casos de Pruebas](./TEST_CASES.md)*** es:[TEST_CASES.md](./TEST_CASES.md).
+
+| Documento        | Ruta/Archivo                     |
+| ------------------ | ---------------------------------- |
+| Plan de Pruebas  | [TEST_PLAN.md](./TEST_PLAN.md)   |
+| Casos de Pruebas | [TEST_CASES.md](./TEST_CASES.md) |
 
 ###### 2. Código y cobertura
 
-- El código y detalle de los scripts de la automatizacíon se encuentra en [TEST_CASES.postman_collection.json](./TEST_CASES.postman_collection.json) y otros archivos. Para mayor detalle de los archivos ver el ***[Plan de Pruebas](./TEST_PLAN.md) sección 10***.
+- El código y detalle de los scripts de la automatización se encuentra en [TEST_CASES.postman_collection.json](./TEST_CASES.postman_collection.json) y otros archivos. Para mayor detalle de los archivos ver el ***[Plan de Pruebas](./TEST_PLAN.md) sección 10***.
 - La cobertura de las pruebas es:
-  - Automatizacíon de la autenticación.
+  - Automatización de la autenticación.
   - Pruebas de escenarios Happy Path y UnHappy Paths de las funcionalidades CRUD del Endpoint.
   - Verificación de códigos de respuesta en cada escenario.
   - Prueba de disponibilidad del sistema y tiempo de respuesta.
-  - Escenarios de preubas estabelcidos en el ***[Plan de Pruebas](./TEST_PLAN.md) sección 7.***
+  - Escenarios de pruebas establecidos en el ***[Plan de Pruebas](./TEST_PLAN.md) sección 7.***
 
 ###### 3. Herramientas y técnicas
 
@@ -54,21 +47,21 @@ java -jar resources/jenkins-cli.jar -s http://localhost:9090/ -auth your_user:yo
 java -jar resources/jenkins-cli.jar -s http://localhost:9090/ -auth your_user:your_password create-job "API Booker - Testing" < TEST_CASES.jenkins_job.xml
 ```
 
-##### **DEMO**
+## **DEMO**
 
-###### **Postman Auth**
+###### **Postman [Auth]**
 
 ![image info](resources/DemoTest_PostmanAuth.gif)
 
-###### **Postman Create**
+###### **Postman [Create]**
 
 ![image info](resources/DemoTest_PostmanCreate.gif)
 
-###### **Atomatizacion Postman (Archivo BAT)**
+###### **Automatización Postman (Archivo BAT)**
 
 ![image info](resources/DemoTest_AutoBat.gif)
 
-###### **Integracion continua con Jenkins**
+###### **Integración continua (Jenkins)**
 
 ![image info](resources/DemoTest_CIJenkins.gif)
 
