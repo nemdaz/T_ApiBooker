@@ -61,7 +61,7 @@ java -jar resources/jenkins-cli.jar -s http://localhost:9090/ -auth your_user:yo
 
 ![image info](assets/DemoTest_AutoBat.gif)
 
-###### **Integración continua (Jenkins)**
+###### **Integración continua (Jenkins, Git)**
 
 ![image info](assets/DemoTest_CIJenkins.gif)
 
