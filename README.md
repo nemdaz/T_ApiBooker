@@ -51,18 +51,18 @@ java -jar resources/jenkins-cli.jar -s http://localhost:9090/ -auth your_user:yo
 
 ###### **Postman [Auth]**
 
-![image info](resources/DemoTest_PostmanAuth.gif)
+![image info](assets/DemoTest_PostmanAuth.gif)
 
 ###### **Postman [Create]**
 
-![image info](resources/DemoTest_PostmanCreate.gif)
+![image info](assets/DemoTest_PostmanCreate.gif)
 
 ###### **Automatización Postman (Archivo BAT)**
 
-![image info](resources/DemoTest_AutoBat.gif)
+![image info](assets/DemoTest_AutoBat.gif)
 
 ###### **Integración continua (Jenkins)**
 
-![image info](resources/DemoTest_CIJenkins.gif)
+![image info](assets/DemoTest_CIJenkins.gif)
 
 END
